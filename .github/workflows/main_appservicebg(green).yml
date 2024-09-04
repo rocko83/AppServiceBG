@@ -37,18 +37,15 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Generate token
-        id: generate_token
-        uses: tibdex/github-app-token@v1
+      - uses: macnev2013/manual-approval@latest
         with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
-      - name: Wait for approval
-        uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ steps.generate_token.outputs.token }}
-          approvers: henriqcabral, rocko83
+          secret: ${{ github.TOKEN }}
+          approvers: henriqcabral,rocko83
           minimum-approvals: 1
+          approval-wait: 600
+          issue-title: 'Manual Approval'
+          issue-body: |
+            "Issue Body"
       
   deploy:
     runs-on: ubuntu-latest
