@@ -78,4 +78,4 @@ jobs:
         app-name: 'appservicebg'
         slot-name: 'production'
         publish-profile: ${{ secrets.PRODUCTION_PUBLISH_PROFILE }}
-        images: 'appservicecr.azurecr.io/$AppServiceBG/appservicecr/appservicebg:${{ github.sha }}'
+        images: 'appservicecr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_d3dbc2811c54499d9a7ff61b42b5bbc6 }}/appservicecr/appservicebg:${{ github.sha }}'
