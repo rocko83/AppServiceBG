@@ -46,6 +46,6 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'AppServiceBG'
-        slot-name: 'production'
+        slot-name: 'green'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_82a820f1731341579b32f99b8d33bf9f }}
         images: 'appservicecr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_95b16af5d32640238498a8e110540569 }}/appservicebg:${{ github.sha }}'
