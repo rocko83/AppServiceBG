@@ -45,7 +45,7 @@ jobs:
           
   deploy:
     runs-on: ubuntu-latest
-    needs: build
+    needs: approve
     environment:
       name: 'green'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
